@@ -1,5 +1,6 @@
 import numpy as np
 import scipy.linalg as sl
+import time
 
 def sweep(a, b, c, f, n):
     alpha = np.array([0.0] * (n + 1))
@@ -20,23 +21,52 @@ def create_matrix(a, b, c):
     A = np.array([a_linalg, b_linalg, c_linalg])
     return A
 
-print("Enter matrix size: ")   
-n = int(input())
+def generate_random_vectors(size):
+    a = np.random.rand(size)
+    b = np.random.rand(size)
+    c = np.random.rand(size)
+    for i in range(size):
+        b[i] = abs(a[i]) + abs(b[i]) + abs(c[i]) + 1
+    f = np.random.rand(size)
+    return a, b, c, f
 
-A = np.ones((n, n)) * 0.0
-a = np.random.rand(n)
-b = np.random.rand(n)
-c = np.random.rand(n)
-f = np.random.rand(n)
-A = create_matrix(a, b, c)
+def get_time_data(a, b, c, f, matrixSize):
+    myTime = 0.0
+    linalgTime = 0.0
+    iterator = 0
+    while matrixSize <= 200000:
+        a, b, c, f = generate_random_vectors(matrixSize)
+        A = create_matrix(a, b, c)
+        startTime = time.time()
+        myAnswer = sweep(a, b, c, f, matrixSize)
+        myTime = time.time() - startTime
+        startTime = time.time()
+        linalgAnswer = sl.solve_banded((1, 1), A, f)
+        linalgTime = time.time() - startTime
+        myTimeData[iterator] = round(myTime, 10)
+        linalgTimeData[iterator] = round(linalgTime, 10)
+        matrixSize += 1000
+        iterator += 1
+    return myTimeData, linalgTimeData
 
-print("Given matrix: ")
-print(A)
+matrixSize = 1000
+A = np.ones((matrixSize, matrixSize)) * 0.0
+a = np.zeros(matrixSize)
+b = np.zeros(matrixSize)
+c = np.zeros(matrixSize)
+f = np.zeros(matrixSize)
 
-x = sweep(a, b, c, f, n)
-print("My answer:")
-print(x)
+numberOfData = 200
+myAnswer = np.zeros(matrixSize)
+linalgAnswer = np.zeros(matrixSize)
+myTimeData = np.zeros(numberOfData)
+linalgTimeData = np.zeros(numberOfData)
 
-x_linalg = sl.solve_banded((1, 1), A, f)
-print("Linalg answer:")
-print(x_linalg)
+myTimeData, linalgTimeData = get_time_data(a, b, c, f, matrixSize)
+
+print("My data:")
+print(myTimeData)
+print("Linalg data:")
+print(linalgTimeData)
+
+
