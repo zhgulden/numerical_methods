@@ -1,6 +1,7 @@
 import numpy as np
 import scipy.linalg as sl
 import time
+import matplotlib.pyplot as plt
 
 def sweep(a, b, c, f, n):
     alpha = np.array([0.0] * (n + 1))
@@ -49,6 +50,17 @@ def get_time_data(a, b, c, f, matrixSize):
         iterator += 1
     return myTimeData, linalgTimeData
 
+def show_result(myTimeData, linalgTimeData):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.set(title = 'Red - scipy.linalg.solve_banded(), blue - sweep()',
+       xlabel = 'matrix size (thousand)',
+       ylabel = 'time (seconds)')
+    ax.plot(myTimeData, color = 'b')
+    ax.plot(linalgTimeData, color = 'r')
+    plt.savefig('sweep.png', bbox_inches='tight')
+    plt.show()
+
 matrixSize = 1000
 A = np.ones((matrixSize, matrixSize)) * 0.0
 a = np.zeros(matrixSize)
@@ -63,10 +75,6 @@ myTimeData = np.zeros(numberOfData)
 linalgTimeData = np.zeros(numberOfData)
 
 myTimeData, linalgTimeData = get_time_data(a, b, c, f, matrixSize)
-
-print("My data:")
-print(myTimeData)
-print("Linalg data:")
-print(linalgTimeData)
+show_result(myTimeData, linalgTimeData)
 
 
