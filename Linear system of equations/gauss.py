@@ -29,7 +29,12 @@ def gauss(A, f, matrixSize):
 
 def generate_random_data(matrixSize):
     A = np.random.rand(matrixSize, matrixSize)
-    f = np.random.rand(matrixSize)
+    for i in range(n):
+        Sum = 0
+        for j in range(n):
+            Sum = Sum + abs(A[i][j])
+        A[i][i] = Sum
+        f = np.random.rand(matrixSize)
     return A, f
 
 def get_time_data(matrixSize):
@@ -72,4 +77,3 @@ myTimeData = np.zeros(numberOfData)
 linalgTimeData = np.zeros(numberOfData)
 myTimeData, linalgTimeData = get_time_data(matrixSize)
 show_result(myTimeData, linalgTimeData)
-
