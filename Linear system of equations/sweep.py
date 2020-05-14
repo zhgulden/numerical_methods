@@ -1,4 +1,5 @@
 import numpy as np
+import scipy.linalg as sl
 
 def sweep(a, b, c, f, n):
     alpha = np.array([0.0] * (n + 1))
@@ -12,25 +13,30 @@ def sweep(a, b, c, f, n):
         x[i] = alpha[i + 1] * x[i + 1] + beta[i + 1]
     return x
  
+def create_matrix(a, b, c):
+    a_linalg = np.array([0] + c[:-1].tolist())
+    b_linalg = b
+    c_linalg = np.array(a[1:].tolist() + [0])
+    A = np.array([a_linalg, b_linalg, c_linalg])
+    return A
+
 print("Enter matrix size: ")   
 n = int(input())
+
+A = np.ones((n, n)) * 0.0
+a = np.random.rand(n)
+b = np.random.rand(n)
+c = np.random.rand(n)
+f = np.random.rand(n)
+A = create_matrix(a, b, c)
+
 print("Given matrix: ")
-A = np.random.rand(n, n)
 print(A)
 
-a = [0.0] * n
-b = [0.0] * n
-c = [0.0] * n
-f = np.random.rand(n)
-
-for i in range(n):
-    b[i] = A[i][i]
-    if i > 0:
-        a[i] = A[i][i - 1]
-    if i < n - 1:
-        c[i] = A[i][i + 1]
-
 x = sweep(a, b, c, f, n)
-
-print("Answer:")
+print("My answer:")
 print(x)
+
+x_linalg = sl.solve_banded((1, 1), A, f)
+print("Linalg answer:")
+print(x_linalg)
