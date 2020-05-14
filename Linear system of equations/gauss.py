@@ -60,7 +60,7 @@ def show_result(myTimeData, linalgTimeData):
     ax = fig.add_subplot(111)
     ax.set(xlim = [0, 90],
         ylim = [0.0, 1.0],
-        title = 'Red - scipy.linalg.solve_banded(), blue - gauss()',
+        title = 'Red - scipy.linalg.solve(), blue - gauss()',
         xlabel = 'matrix size (thousand)',
         ylabel = 'time (seconds)')
     ax.plot(myTimeData, color = 'b')
