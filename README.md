@@ -14,6 +14,8 @@
 * Problems of mathematical physics
   * Numerical methods for diffusion models
   * Numerical methods for wave equations
+* Dependencies
+* How to run programs
   
 # Definitions and Basics
 A linear equation system is a set of linear equations to be solved simultanously. A linear equation takes the form 
