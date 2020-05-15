@@ -180,4 +180,17 @@ Using the matplotlib library, I was able to visually show the running time of th
 
 ![image23](https://github.com/zhgulden/numerical_methods/blob/master/images/jacobi.png)
 
+# Interpolation
+Interpolation is a type of estimation, a method of constructing new data points within the range of a discrete set of known data points.
 
+## Linear interpolation
+One of the simplest methods is linear interpolation (sometimes known as lerp). Consider the above example of estimating f(2.5). Since 2.5 is midway between 2 and 3, it is reasonable to take f(2.5) midway between f(2) = 0.9093 and f(3) = 0.1411, which yields 0.5252. Linear interpolation is quick and easy, but it is not very precise. 
+
+Generally, linear interpolation takes two data points and the interpolant is given by: 
+![image24](https://github.com/zhgulden/numerical_methods/blob/master/images/linear_1.svg)
+![image25](https://github.com/zhgulden/numerical_methods/blob/master/images/linear_2.svg)
+![image26](https://github.com/zhgulden/numerical_methods/blob/master/images/linear_3.svg)
+
+The error is proportional to the square of the distance between the data points. The error in some other methods, including polynomial interpolation and spline interpolation, is proportional to higher powers of the distance between the data points. 
+
+![image27](https://github.com/zhgulden/numerical_methods/blob/master/images/linear.png)
