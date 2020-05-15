@@ -35,6 +35,16 @@ def get_data(descriptor):
     data = [float(i) for i in descriptor.readline().split()]
     return data
 
+def show_result(dataTrainX, dataTrainY, dataTestX, dataTestY):
+    plt.figure()
+    plt.subplot(2, 1, 1)
+    plt.plot(dataTrainX, dataTrainY, 'r')
+    plt.title('train.dat and train.ans')
+    plt.subplot(2, 1, 2)
+    plt.plot(dataTestX, dataTestY, 'b')
+    plt.title('test.dat and test.ans')
+    plt.show()
+
 trainX, trainY, testX, testY = open_files('train.dat', 'train.ans', 'test.dat', 'test.ans')
 numTrainDat, numTestDat = get_number_of_data(trainX),  get_number_of_data(testX)
 
@@ -43,6 +53,9 @@ trainY.readline()
 dataTrainX = get_data(trainX)
 dataTrainY = get_data(trainY)
 dataTestX = get_data(testX)
+print(dataTrainX)
+print(dataTrainY)
+print(dataTestX)
 
 a, b = build_segment(dataTrainX, dataTrainY)
 
@@ -51,8 +64,15 @@ for i in range(numTestDat):
     index = find_index(dataTrainX, dataTestX[i])
     value = a[index] * dataTestX[i] + b[index]
     testY.write(str(value) + ' ')
+
+testY = open('test.ans', 'r')
+testY.readline()
+dataTestY = get_data(testY)
+print(dataTestY)
+
 trainX.close()
 trainY.close()
 testX.close()
 testY.close()
 
+show_result(dataTrainX, dataTrainY, dataTestX, dataTestY)
