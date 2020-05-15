@@ -60,5 +60,5 @@ def backward(A, f, n):
 
 ```
 Using the matplotlib library, I was able to visually show the running time of the written program and the library function scipy.linalg.solve():
-![image10](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.png)
 
+![image10](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.png)
