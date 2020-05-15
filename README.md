@@ -111,14 +111,54 @@ But, with the growth of the matrix size, the library function scipy.linalg.solve
 ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep1.png)
 
 ## Cholesky decomposition
-**Asymptotic** ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.svg)
+**Asymptotic** ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss_asymptotic.svg)
 
 The Cholesky algorithm, used to calculate the decomposition matrix L, is a modified version of Gaussian elimination. 
 
 The Cholesky decomposition of a Hermitian positive-definite matrix **A** is a decomposition of the form 
 **A = LL*** where **L** is a lower triangular matrix with real and positive diagonal entires, and **L*** denotes the conjugate transpose of L. Every Hermitian positive-definite matrix (and thus also every real-valued symmetric positive-definite matrix) has a unique Cholesky decomposition.
 
+```
+def cholesky_decomposition(A, n):
+    L = np.ones((n, n)) * 0.0
+    for i in range(n):
+        for j in range(i + 1):
+            if i == j:
+                Sum = 0
+                for k in range(i):
+                    Sum = Sum + L[i][k] ** 2
+                L[i][i] = (A[i][i] - Sum) ** 0.5
+            else:
+                Sum = 0
+                for k in range(j):
+                    Sum = Sum + L[i][k] * L[j][k]
+                L[i][j] = (A[i][j] - Sum) / L[j][j]
+    return L
+```
+
 # Iterative methods
+An iterative method is a mathematical procedure that uses an initial guess to generate a sequence of improving approximate solutions for a class of problems, in which the n-th approximation is derived from the previous ones.
+
+## Seidel method
+The Seidel method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
+We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix.
+And let the matrix **B = D + L**, then when substituting ![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.xcv) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcv) we get the Seidel method.
+
+```
+def Seidel(A, f, x, n):
+    newx = [0] * n
+    for i in range(n):
+        Sum = 0
+        for j in range(i - 1):
+            Sum = Sum + A[i][j] * newx[j]
+        for j in range(i + 1, n):
+            Sum = Sum + A[i][j] * x[j]
+        newx[i] = (f[i] - Sum) / A[i][i]
+    return newx
+```
+Using the matplotlib library, I was able to visually show the running time of the written program and the library function scipy.linalg.solve().
+![image21](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel.png)
+
 
 
 
