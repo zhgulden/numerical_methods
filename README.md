@@ -108,4 +108,4 @@ With small matrix sizes (about 1000), the written algorithm works faster than sc
 ![image17](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep.png)
 
 But, with the growth of the matrix size, the library function scipy.linalg.solve_bounded() is faster.
-![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep2.png)
+![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep1.png)
