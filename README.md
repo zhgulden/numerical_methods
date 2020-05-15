@@ -34,6 +34,31 @@ Solving a system ![image6](https://github.com/zhgulden/numerical_methods/blob/ma
 However, finding ![image9](https://github.com/zhgulden/numerical_methods/blob/master/images/exact_solution_4.svg) is (except for trivial cases) very hard. The following sections describe methods to find an exact solution to the problem. 
 
 ## Gaussian elimination
-Gaussian elimination method is a numerical method for solving linear system **Ax = b**, where we assume that _A_ is a square _n x n_ matrix, _x_ and _b_ are both _n_ dimentional vectors. In the process, the system of equations **_Ax = b_** is redused by Gaussian elimination to an upper triangular system **_Ux = y_** to be solved through backward substitution.
+Gaussian elimination method is a numerical method for solving linear system **Ax = b**, where we assume that **A** is a square **n x n** matrix, **x** and **b** are both **n** dimentional vectors. In the process, the system of equations **Ax = b** is redused by Gaussian elimination to an upper triangular system **Ux = y** (forward function)  to be solved through backward substitution.
 
+```
+def forward(A, f, n):
+    for k in range(n):
+        A[k] = A[k] / A[k][k]
+        f[k] = f[k] / A[k][k] 
+        
+        for i in range(k + 1, n):
+            A[i] = A[i] - A[k] * A[i][k]
+            f[i] = f[i] - f[k] * A[i][k]
+            A[i][k] = 0
+    return A, f
+```
+
+```
+def backward(A, f, n):
+    myAnswer = [0] * n
+    for i in range(n - 1, -1, -1):
+        x[i] = f[i]
+        for j in range(i + 1, n):
+            x[i] = x[i] - A[i][j] * x[j]
+    return np.array(x)
+
+```
+Using the matplotlib library, I was able to visually show the running time of the written program and the library function scipy.linalg.solve():
+![image10](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.png)
 
