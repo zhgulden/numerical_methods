@@ -113,7 +113,12 @@ But, with the growth of the matrix size, the library function scipy.linalg.solve
 ## Cholesky decomposition
 **Asymptotic** ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.svg)
 
+The Cholesky algorithm, used to calculate the decomposition matrix L, is a modified version of Gaussian elimination. 
+
 The Cholesky decomposition of a Hermitian positive-definite matrix **A** is a decomposition of the form 
-**A = LL***
+**A = LL*** where **L** is a lower triangular matrix with real and positive diagonal entires, and **L*** denotes the conjugate transpose of L. Every Hermitian positive-definite matrix (and thus also every real-valued symmetric positive-definite matrix) has a unique Cholesky decomposition.
+
+# Iterative methods
+
 
 
