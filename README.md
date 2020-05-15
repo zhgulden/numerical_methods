@@ -9,7 +9,7 @@
   * Jacobi method
 * Interpolation
   * Linear interpolation
-  * Lagrange interpolation
+  * Polynomial interpolation
   * Spline interpolation
 * Problems of mathematical physics
   * Numerical methods for diffusion models
@@ -222,3 +222,8 @@ def build_segment(x, y):
 Using the matplotlib library, I was able to visually show the linear interpolation
 
 ![image27](https://github.com/zhgulden/numerical_methods/blob/master/images/Linear.png)
+
+## Polynomial interpolation
+Polynomial interpolation is the interpolation of a given data set by the polynomial of lowest possible degree that passes through the points of the dataset.
+t is often needed to estimate the value of a function $y=f(x)$ at certan point $x$ based on the known values of the function $f(x_0), \cdots,f(x_n)$ at a set of $n+1$ node points $a=x_0\le x_1\le\cdots\le x_n=b$ in the interval $[a,\; b]$
+
