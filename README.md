@@ -194,6 +194,31 @@ Generally, linear interpolation takes two data points and the interpolant is giv
 
 ![image26](https://github.com/zhgulden/numerical_methods/blob/master/images/linear_3.svg)
 
-The error is proportional to the square of the distance between the data points. The error in some other methods, including polynomial interpolation and spline interpolation, is proportional to higher powers of the distance between the data points. 
+The error is proportional to the square of the distance between the data points. The error in some other methods, including polynomial interpolation and spline interpolation, is proportional to higher powers of the distance between the data points.
+
+We find the index using a binary search algorithm:
+```
+def find_index(array, value):
+    left, right = 0, len(array) - 1
+    while right - left > eps:
+        middle = (left + right) // 2
+        if array[middle] >= value:
+            right = middle
+        else:
+            left = middle
+    return left
+```
+
+```
+def build_segment(x, y):
+    n = len(x)
+    a, b = [0.0] * (n - 1), [0.0] * (n - 1)
+    for i in range(n - 1):
+        tmp = (y[i + 1] - y[i]) / (x[i + 1] - x[i])
+        a[i] = tmp
+        b[i] = y[i] - x[i] * tmp
+    return a, b
+```
+Using the matplotlib library, I was able to visually show the linear interpolation
 
 ![image27](https://github.com/zhgulden/numerical_methods/blob/master/images/Linear.png)
