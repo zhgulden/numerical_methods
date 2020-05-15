@@ -65,7 +65,7 @@ Using the matplotlib library, I was able to visually show the running time of th
 
 ![image11](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.png)
 
-### Tridiagonal matrix algorithm
+## Tridiagonal matrix algorithm
 **Asymptotics**  ![image12](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_5.svg)
 
 This algorithm, also known as the Thomas algorithm, is a simplified form of Gaussian elimination that can be used to solve tridiagonal systems of equations. A tridiagonal system for n unknowns may be written as 
@@ -102,7 +102,7 @@ def sweep(a, b, c, f, n):
         x[i] = alpha[i + 1] * x[i + 1] + beta[i + 1]
     return x
 ```
-Using the matplotlib library, I was able to visually show the running time of the written program and the library function scipy.linalg.solve(). 
+Using the matplotlib library, I was able to visually show the running time of the written program and the library function scipy.linalg.solve_bounded(). 
 
 With small matrix sizes (about 1000), the written algorithm works faster than scipy.linalg.solve_bounded(). 
 ![image17](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep.png)
