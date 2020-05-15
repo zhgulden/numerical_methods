@@ -114,6 +114,6 @@ But, with the growth of the matrix size, the library function scipy.linalg.solve
 **Asymptotic** ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.svg)
 
 The Cholesky decomposition of a Hermitian positive-definite matrix **A** is a decomposition of the form 
-##### A = LL*
+**A = LL***
 
 
