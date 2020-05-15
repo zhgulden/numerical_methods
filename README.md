@@ -141,7 +141,7 @@ An iterative method is a mathematical procedure that uses an initial guess to ge
 
 ## Seidel method
 The Seidel method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
-We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix.
+We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
 And let the matrix **B = D + L**, then when substituting ![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.xcv) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcv) we get the Seidel method.
 
 ```
@@ -160,6 +160,24 @@ Using the matplotlib library, I was able to visually show the running time of th
 
 ![image21](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel.png)
 
+## Jacobi method
+The Jacobi method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
+We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
+And let the matrix **B = D** in the expression ![image22](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcv) then we get the Jacobi method.
+```
+def Jacobi(A, f, x, n):
+    newx = [0] * n
+    for i in range(n):
+        Sum = 0
+        for j in range(i - 1):
+            Sum = Sum + A[i][j] * newx[j]
+        for j in range(i + 1, n):
+            Sum = Sum + A[i][j] * newx[j]
+        newx[i] = (f[i] - Sum) / A[i][i]
+    return newx
+```
+Using the matplotlib library, I was able to visually show the running time of the written program and the library function scipy.linalg.solve().
 
+![image23](https://github.com/zhgulden/numerical_methods/blob/master/images/jacobi.png)
 
 
