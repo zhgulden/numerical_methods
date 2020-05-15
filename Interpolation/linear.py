@@ -53,9 +53,6 @@ trainY.readline()
 dataTrainX = get_data(trainX)
 dataTrainY = get_data(trainY)
 dataTestX = get_data(testX)
-print(dataTrainX)
-print(dataTrainY)
-print(dataTestX)
 
 a, b = build_segment(dataTrainX, dataTrainY)
 
