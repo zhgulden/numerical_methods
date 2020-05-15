@@ -34,7 +34,8 @@ Solving a system ![image6](https://github.com/zhgulden/numerical_methods/blob/ma
 However, finding ![image9](https://github.com/zhgulden/numerical_methods/blob/master/images/exact_solution_4.svg) is (except for trivial cases) very hard. The following sections describe methods to find an exact solution to the problem. 
 
 ## Gaussian elimination
-**Asymptotics-** ![image11](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss_asymptotics.svg)
+**Asymptotics**  ![image11](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss_asymptotics.svg)
+
 Gaussian elimination method is a numerical method for solving linear system **Ax = b**, where we assume that **A** is a square **n x n** matrix, **x** and **b** are both **n** dimentional vectors. In the process, the system of equations **Ax = b** is redused by Gaussian elimination to an upper triangular system **Ux = y** (forward function)  to be solved through backward substitution.
 
 ```
@@ -65,6 +66,7 @@ Using the matplotlib library, I was able to visually show the running time of th
 ![image11](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.png)
 
 ### Tridiagonal matrix algorithm
-**Asymptotics-** ![image12](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_5.png)
+**Asymptotics**  ![image12](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_5.svg)
+
 This algorithm, also known as the Thomas algorithm, is a simplified form of Gaussian elimination that can be used to solve tridiagonal systems of equations. A tridiagonal system for n unknowns may be written as 
 
