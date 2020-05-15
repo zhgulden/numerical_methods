@@ -225,5 +225,25 @@ Using the matplotlib library, I was able to visually show the linear interpolati
 
 ## Polynomial interpolation
 Polynomial interpolation is the interpolation of a given data set by the polynomial of lowest possible degree that passes through the points of the dataset.
-t is often needed to estimate the value of a function $y=f(x)$ at certan point $x$ based on the known values of the function $f(x_0), \cdots,f(x_n)$ at a set of $n+1$ node points $a=x_0\le x_1\le\cdots\le x_n=b$ in the interval $[a,\; b]$
+
+**The Lagrange interpolating polynomial** is the polynomial **P(x)** of degree ![image28](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_1.gif) that passes through the **n** points ![image29](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_2.gif),
+
+![image30](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_3.gif), 
+
+...,
+
+![image31](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_4.gif).
+ 
+ and is given by 
+
+![image32](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_5.gif), where
+
+![image33](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_6.gif).
+ 
+When constructing interpolating polynomials, there is a tradeoff between having a better fit and having a smooth well-behaved fitting function. The more data points that are used in the interpolation, the higher the degree of the resulting polynomial, and therefore the greater oscillation it will exhibit between the data points. Therefore, a high-degree interpolation may be a poor predictor of the function between points, although the accuracy at the data points will be "perfect." 
+
+Using the matplotlib library, I was able to visually show the polynomial interpolation
+
+![image27](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange.png)
+
 
