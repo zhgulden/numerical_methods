@@ -18,7 +18,7 @@
 * How to run programs
   
 # Definitions and Basics
-A linear equation system is a set of linear equations to be solved simultanously. A linear equation takes the form 
+A **linear equation system** is a set of linear equations to be solved simultanously. A linear equation takes the form 
 ![image1](https://github.com/zhgulden/numerical_methods/blob/master/images/definitions_and_basics_1.svg)
 where the n + 1 coefficients ![image2](https://github.com/zhgulden/numerical_methods/blob/master/images/definitions_and_basics_2.svg) and b are constants and ![image3](https://github.com/zhgulden/numerical_methods/blob/master/images/definitions_and_basics_3.svg) are the n unknowns. 
 
@@ -69,4 +69,43 @@ Using the matplotlib library, I was able to visually show the running time of th
 **Asymptotics**  ![image12](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_5.svg)
 
 This algorithm, also known as the Thomas algorithm, is a simplified form of Gaussian elimination that can be used to solve tridiagonal systems of equations. A tridiagonal system for n unknowns may be written as 
+![image13](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_1.svg), where 
+![image14](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_2.svg) and 
+![image15](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_3.svg).
 
+
+![image16](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_4.svg)
+
+Thomas' algorithm is not stable in general, but is so in several special cases, such as when the matrix is diagonally dominant. 
+
+After generating random vectors, I made the system diagonally dominant by adding the absolute values of all the numbers of this row:
+```
+def generate_random_vectors(size):
+    a = np.random.rand(size)
+    b = np.random.rand(size)
+    c = np.random.rand(size)
+    for i in range(size):
+        b[i] = abs(a[i]) + abs(b[i]) + abs(c[i])
+    f = np.random.rand(size)
+    return a, b, c, f
+```
+```
+def sweep(a, b, c, f, n):
+    alpha = np.array([0.0] * (n + 1))
+    beta = np.array([0.0] * (n + 1))
+    for i in range(n):
+        alpha[i + 1] = -c[i] / (a[i] * alpha[i] + b[i])
+        beta[i + 1] = (f[i] - a[i] * beta[i]) / (a[i] * alpha[i] + b[i])
+    x = np.array([0.0] * n)
+    x[n - 1] = beta[n]
+    for i in range(n - 2, -1, -1):
+        x[i] = alpha[i + 1] * x[i + 1] + beta[i + 1]
+    return x
+```
+Using the matplotlib library, I was able to visually show the running time of the written program and the library function scipy.linalg.solve(). 
+
+With small matrix sizes (about 1000), the written algorithm works faster than scipy.linalg.solve_bounded(). 
+![image17](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep.png)
+
+But, with the growth of the matrix size, the library function scipy.linalg.solve_bounded() is faster.
+![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep2.png)
