@@ -12,13 +12,13 @@ def find_index(array, value):
     return left
 
 def build_segment(x, y):
-    N = len(x)
-    k, b = [0.0] * (N - 1), [0.0] * (N - 1)
-    for i in range(N - 1):
+    n = len(x)
+    a, b = [0.0] * (n - 1), [0.0] * (n - 1)
+    for i in range(n - 1):
         tmp = (y[i + 1] - y[i]) / (x[i + 1] - x[i])
-        k[i] = tmp
+        a[i] = tmp
         b[i] = y[i] - x[i] * tmp
-    return k, b
+    return a, b
 
 def open_files(filename1, filename2, filename3, filename4):
     trainX = open(filename1, 'r')
@@ -37,12 +37,12 @@ def get_data(descriptor):
 
 def show_result(dataTrainX, dataTrainY, dataTestX, dataTestY):
     plt.figure()
+    plt.title('Linear interpolation')
     plt.subplot(2, 1, 1)
     plt.plot(dataTrainX, dataTrainY, 'r')
-    plt.title('train.dat and train.ans')
     plt.subplot(2, 1, 2)
     plt.plot(dataTestX, dataTestY, 'b')
-    plt.title('test.dat and test.ans')
+    plt.savefig('Linear.png', bbox_inches='tight')
     plt.show()
 
 trainX, trainY, testX, testY = open_files('train.dat', 'train.ans', 'test.dat', 'test.ans')
