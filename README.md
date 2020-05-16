@@ -1,4 +1,6 @@
-# Content
+#Introduction to Numerical methods
+
+## Content
 * Definitions and Basics
 * Exact Solution of Linear Systems
   * Gaussian elimination
