@@ -291,7 +291,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 # <a name="dependencies"></a> Dependencies
 ### <a name="numpy"></a> numpy
 
-#### Debian/Ubuntu/Mint
+**Debian/Ubuntu/Mint**
 
 ``` sudo apt-get update ```
 
@@ -299,7 +299,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install numpy ```
 
-#### Fedora/CentOS
+**Fedora/CentOS**
 
 ``` sudo dnf update ```
 
@@ -309,7 +309,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ### <a name="scipy"></a> scipy
 
-#### Debian/Ubuntu/Mint
+**Debian/Ubuntu/Mint**
 
 ``` sudo apt-get update ```
 
@@ -317,7 +317,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install scipy ```
 
-#### Fedora/CentOS
+**Fedora/CentOS**
 
 ``` sudo dnf update ```
 
@@ -328,7 +328,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ### <a name="plt"></a> matplotlib
 
-#### Debian/Ubuntu/Mint
+**Debian/Ubuntu/Minta**
 
 ``` sudo apt-get update ```
 
@@ -336,7 +336,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install matplotlib ```
 
-#### Fedora/CentOS
+**Fedora/CentOS**
 
 ``` sudo dnf matplotlib ```
 
@@ -346,7 +346,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ### <a name="pygame"></a> pygame
 
-#### Debian/Ubuntu/Mint
+**Debian/Ubuntu/Mint**
 
 ``` sudo apt-get pygame ```
 
@@ -354,7 +354,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install pygame ```
 
-#### Fedora/CentOS
+**Fedora/CentOS**
 
 ``` sudo dnf pygame ```
 
@@ -364,13 +364,15 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ### <a name="ffmpeg"></a> ffmpeg
 
+**Debian/Ubuntu/Mint**
+
 ``` sudo apt-get ffmpeg ```
 
 ``` sudo apt-get install python3-ffmpeg ```
 
 ``` pip install ffmpeg ```
 
-#### Fedora/CentOS
+**Fedora/CentOS**
 
 ``` sudo dnf ffmpeg ```
 
