@@ -252,6 +252,23 @@ Polynomial interpolation is the interpolation of a given data set by the polynom
  
 When constructing interpolating polynomials, there is a tradeoff between having a better fit and having a smooth well-behaved fitting function. The more data points that are used in the interpolation, the higher the degree of the resulting polynomial, and therefore the greater oscillation it will exhibit between the data points. Therefore, a high-degree interpolation may be a poor predictor of the function between points, although the accuracy at the data points will be "perfect." 
 
+```
+
+def Lagrange(x, y, input):
+    output = 0.0
+    n = len(X)
+    for i in range(n):
+        if input == x[i]:
+            return y[i]
+    for i in range(n):
+        tmp = 1.0
+        for j in range(n):
+            if i != j:
+                tmp = (tmp * (input - x[j])) / (x[i] - x[j])
+        output = output + y[i] * tmp     
+    return output
+```
+
 Using the matplotlib library, I was able to visually show the polynomial interpolation
 
 ![image34](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange.png)
@@ -261,6 +278,32 @@ Using the matplotlib library, I was able to visually show the polynomial interpo
 Spline interpolation is a form of interpolation where the interpolant is a special type of piecewise polynomial called a spline. Originally, spline was a term for elastic rulers that were bent to pass through a number of predefined points ("knots").
 
 The approach to mathematically model the shape of such elastic rulers fixed by n + 1 knots ![image40](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_1.svg) is to interpolate between all the pairs of knots with polynomials ![image43](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_4.svg)
+
+```
+def generate_smooth_grid(x, y):
+    n = len(x) - 1 
+    h = (x[n] - x[0]) / n
+    a = np.array([0] + [1] * (n - 1) + [0])
+    b = np.array([1] + [4] * (n - 1) + [1])
+    c = np.array([0] + [1] * (n - 1) + [0])
+    f = np.zeros(n + 1)
+    for i in range(1, n):
+        f[i] = 3 * (y[i - 1] - 2 * y[i] + y[i + 1]) / h ** 2
+    s = sweep(a, b, c, f, n + 1)
+    A = np.array([0.0] * (n + 1))
+    B = np.array([0.0] * (n + 1))
+    C = np.array([0.0] * (n + 1))
+    D = np.array([0.0] * (n + 1))
+    for i in range(n):
+        D[i] = y[i]
+        B[i] = s[i]
+        A[i] = (B[i + 1] - B[i]) / (3 * h)
+        if i != n - 1:
+            C[i] = (y[i + 1] - y[i]) / h - (B[i + 1] + 2 * B[i]) * h / 3
+        else:
+            C[i] = (y[i + 1] - y[i]) / h - (2 * B[i]) * h / 3
+    return A, B, C, D
+```
 
 Using the matplotlib library, I was able to visually show the spline interpolation
 
