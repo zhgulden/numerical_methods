@@ -150,7 +150,7 @@ An iterative method is a mathematical procedure that uses an initial guess to ge
 The Seidel method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
 We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
 And let the matrix **B = D + L**, then when substituting 
-![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.xcf) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcf) we get the Seidel method.
+![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.svg) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.svg) we get the Seidel method.
 
 ```
 def Seidel(A, f, x, n):
