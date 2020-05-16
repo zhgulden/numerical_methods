@@ -4,7 +4,7 @@
 * [Definitions and Basics](#basics)
 * [Exact Solution of Linear Systems](#exact_solution)
   * [Gaussian elimination](#gauss)
-  * [Tridiagonal matrix algorithm](#spline)
+  * [Tridiagonal matrix algorithm](#sweep)
   * [Cholesky decomposition](#cholesky)
 * [Iterative methods](#iterative)
   * [Seidel method](#seidel)
@@ -72,7 +72,7 @@ Using the matplotlib library, I was able to visually show the running time of th
 
 ![image11](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.png)
 
-## <a name="spline"></a> Tridiagonal matrix algorithm
+## <a name="sweep"></a> Tridiagonal matrix algorithm
 **Asymptotics**  ![image12](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_5.svg)
 
 This algorithm, also known as the Thomas algorithm, is a simplified form of Gaussian elimination that can be used to solve tridiagonal systems of equations. A tridiagonal system for n unknowns may be written as 
