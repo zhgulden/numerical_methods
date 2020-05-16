@@ -23,6 +23,7 @@
   * [pygame](#pygame)
   * [ffmpeg](#ffmpeg)
 * [How to run programs](#run)
+* [Questions ans suggestions](#questions)
   
 # <a name="basics"></a> Definitions and Basics
 A **linear equation system** is a set of linear equations to be solved simultanously. A linear equation takes the form 
@@ -425,3 +426,5 @@ The result of the program:
 
 **Example:**   ``` python3 gauss.py ```
 
+# <a name="questions"></a> Questions and suggestions
+If you have any questions or suggestions, write to the email **zhanmukanbetova.gulden@gmail.com**
