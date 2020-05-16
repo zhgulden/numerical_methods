@@ -278,10 +278,7 @@ The result of the program:
 The result of the program:
 
 ![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/transfer.gif)
-```
-matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1][j] + matrixOld[i-1][j] +
-                matrixOld[i][j-1] + matrixOld[i][j+1] - 4.0 * matrixOld[i][j])
-```
+
 # <a name="dependencies"></a> Dependencies
 ### <a name="numpy"></a> numpy
 
