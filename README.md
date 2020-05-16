@@ -251,6 +251,7 @@ Using the matplotlib library, I was able to visually show the polynomial interpo
 
 The purpose of the program was to create a heat point, then spread it, thereby creating a diffusion effect. 
 The result of the program:
+
 ![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/diffusion.png)
 ```
 newMatrix[i][j] = matrix[i][j] + C * (matrix[i - 1][j] + matrix[i + 1][j] + matrix[i][j - 1] +
@@ -259,6 +260,7 @@ newMatrix[i][j] = matrix[i][j] + C * (matrix[i - 1][j] + matrix[i + 1][j] + matr
 
 ## Numerical methods for wave equations
 The result of the program:
+
 ![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/wave.png)
 ```
 matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1][j] + matrixOld[i-1][j] +
@@ -308,4 +310,6 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 # How to run programs
 
 ``` python3 programName.py```
+
+**Example:**   ``` python3 gauss.py ```
 
