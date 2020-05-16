@@ -118,7 +118,7 @@ But, with the growth of the matrix size, the library function scipy.linalg.solve
 ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep1.png)
 
 ## <a name="cholesky"></a> Cholesky decomposition
-**Asymptotic** ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss_asymptotic.svg)
+**Asymptotic** ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss_asymptotics.svg)
 
 The Cholesky algorithm, used to calculate the decomposition matrix L, is a modified version of Gaussian elimination. 
 
@@ -149,7 +149,9 @@ An iterative method is a mathematical procedure that uses an initial guess to ge
 ## <a name="seidel"></a> Seidel method
 The Seidel method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
 We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
-And let the matrix **B = D + L**, then when substituting ![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.xcv) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcv) we get the Seidel method.
+And let the matrix 
+**B = D + L**, 
+then when substituting ![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.xcf) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcf) we get the Seidel method.
 
 ```
 def Seidel(A, f, x, n):
@@ -170,7 +172,7 @@ Using the matplotlib library, I was able to visually show the running time of th
 ## <a name="jacobi"></a> Jacobi method
 The Jacobi method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
 We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
-And let the matrix **B = D** in the expression ![image22](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcv) then we get the Jacobi method.
+And let the matrix **B = D** in the expression ![image22](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcf) then we get the Jacobi method.
 ```
 def Jacobi(A, f, x, n):
     newx = [0] * n
@@ -233,9 +235,9 @@ Using the matplotlib library, I was able to visually show the linear interpolati
 ## <a name="lagrange"></a> Polynomial interpolation
 Polynomial interpolation is the interpolation of a given data set by the polynomial of lowest possible degree that passes through the points of the dataset.
 
-**The Lagrange interpolating polynomial** is the polynomial **P(x)** of degree ![image28](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_1.gif) that passes through the **n** points !
+**The Lagrange interpolating polynomial** is the polynomial **P(x)** of degree ![image28](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_1.gif) that passes through the **n** points 
 
-[image29](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_2.gif),
+![image29](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_2.gif),
 
 ![image30](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_3.gif), 
 
