@@ -166,12 +166,12 @@ def Seidel(A, f, x, n):
 ```
 Using the matplotlib library, I was able to visually show the running time of the written program and the library function scipy.linalg.solve().
 
-![image21](https://github.com/zhgulden/numerical_methods/blob/master/images/rsz_seidel.png)
+![image21](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel.png)
 
 ## <a name="jacobi"></a> Jacobi method
 The Jacobi method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
 We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
-And let the matrix **B = D** in the expression ![image22](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.jpg) then we get the Jacobi method.
+And let the matrix **B = D** in the expression ![image22](https://github.com/zhgulden/numerical_methods/blob/master/images/rsz_seidel_1.jpg) then we get the Jacobi method.
 ```
 def Jacobi(A, f, x, n):
     newx = [0] * n
