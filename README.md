@@ -272,16 +272,16 @@ Using the matplotlib library, I was able to visually show the spline interpolati
 
 The result of the program:
 
-![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/heat.gif)
-
 The heat equation is a partial differential equation that describes how the distribution of some quantity (such as heat) evolves over time in a solid medium, as it spontaneously flows from places where it is higher towards places where it is lower. It is a special case of the diffusion equation.
+
+The result of the program:
+![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/heat.gif)
 
 ## <a name="equation"></a> Numerical methods for transfer equation
 
 Instead of the diffusion equation, the process of the propagation of particles is also described by more accurate equations, the so-called **transfer equations**.
 
 The result of the program:
-
 ![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/transfer.gif)
 
 # <a name="dependencies"></a> Dependencies
