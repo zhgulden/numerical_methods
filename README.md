@@ -17,7 +17,7 @@
   * [Numerical methods for diffusion models](#diffusion)
   * [Numerical methods for wave equations](#wave)
 * [Dependencies](#dependencies)
-  *[numpy](#numpy)
+  * [numpy](#numpy)
   * [scipy](#scipy)
   * [matplotlib](#plt)
   * [pygame](#pygame)
