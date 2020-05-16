@@ -266,30 +266,46 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 ```
 # Dependencies
 ### numpy
+
 ``` sudo apt-get update ```
+
 ``` sudo apt-get install python3-numpy ```
+
 ``` pip install numpy ```
 
 ### scipy
+
 ``` sudo apt-get update ```
+
 ``` sudo apt-get install python3-scipy ```
+
 ``` pip install scipy ```
 
 ### matplotlib
+
 ``` sudo apt-get update ```
+
 ``` sudo apt-get install python3-matplotlib ```
+
 ``` pip install matplotlib ```
 
 ### pygame
+
 ``` sudo apt-get update ```
+
 ``` sudo apt-get install python3-pygame ```
+
 ``` pip install pygame ```
 
 ### ffmpeg
+
 ``` sudo apt-get update ```
+
 ``` sudo apt-get install python3-ffmpeg ```
+
 ``` pip install ffmpeg ```
 
 # How to run programs
+
 ``` python3 programName.py```
 
