@@ -291,13 +291,25 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 # <a name="dependencies"></a> Dependencies
 ### <a name="numpy"></a> numpy
 
+#### Debian/Ubuntu/Mint
+
 ``` sudo apt-get update ```
 
 ``` sudo apt-get install python3-numpy ```
 
 ``` pip install numpy ```
 
+#### Fedora/CentOS
+
+``` sudo dnf update ```
+
+``` sudo dnf install python3-numpy ```
+
+``` pip install numpy ```
+
 ### <a name="scipy"></a> scipy
+
+#### Debian/Ubuntu/Mint
 
 ``` sudo apt-get update ```
 
@@ -305,7 +317,18 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install scipy ```
 
+#### Fedora/CentOS
+
+``` sudo dnf update ```
+
+``` sudo dnf install python3-scipy ```
+
+``` pip install scipy ```
+
+
 ### <a name="plt"></a> matplotlib
+
+#### Debian/Ubuntu/Mint
 
 ``` sudo apt-get update ```
 
@@ -313,19 +336,45 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install matplotlib ```
 
+#### Fedora/CentOS
+
+``` sudo dnf matplotlib ```
+
+``` sudo dnf install python3-matplotlib ```
+
+``` pip install matplotlib ```
+
 ### <a name="pygame"></a> pygame
 
-``` sudo apt-get update ```
+#### Debian/Ubuntu/Mint
+
+``` sudo apt-get pygame ```
 
 ``` sudo apt-get install python3-pygame ```
 
 ``` pip install pygame ```
 
+#### Fedora/CentOS
+
+``` sudo dnf pygame ```
+
+``` sudo dnf install python3-pygame ```
+
+``` pip install pygame ```
+
 ### <a name="ffmpeg"></a> ffmpeg
 
-``` sudo apt-get update ```
+``` sudo apt-get ffmpeg ```
 
 ``` sudo apt-get install python3-ffmpeg ```
+
+``` pip install ffmpeg ```
+
+#### Fedora/CentOS
+
+``` sudo dnf ffmpeg ```
+
+``` sudo dnf install python3-ffmpeg ```
 
 ``` pip install ffmpeg ```
 
