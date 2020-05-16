@@ -244,6 +244,52 @@ When constructing interpolating polynomials, there is a tradeoff between having 
 
 Using the matplotlib library, I was able to visually show the polynomial interpolation
 
-![image27](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange.png)
+![image34](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange.png)
 
+# Problems of mathematical physics
+## Numerical methods for diffusion models
+
+The purpose of the program was to create a heat point, then spread it, thereby creating a diffusion effect. 
+The result of the program:
+![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/diffusion.png)
+```
+newMatrix[i][j] = matrix[i][j] + C * (matrix[i - 1][j] + matrix[i + 1][j] + matrix[i][j - 1] +
+                          matrix[i][j + 1] - 4 * matrix[i][j])
+```
+
+## Numerical methods for wave equations
+The result of the program:
+![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/wave.png)
+```
+matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1][j] + matrixOld[i-1][j] +
+                matrixOld[i][j-1] + matrixOld[i][j+1] - 4.0 * matrixOld[i][j])
+```
+# Dependencies
+### numpy
+``` sudo apt-get update ```
+``` sudo apt-get install python3-numpy ```
+``` pip install numpy ```
+
+### scipy
+``` sudo apt-get update ```
+``` sudo apt-get install python3-scipy ```
+``` pip install scipy ```
+
+### matplotlib
+``` sudo apt-get update ```
+``` sudo apt-get install python3-matplotlib ```
+``` pip install matplotlib ```
+
+### pygame
+``` sudo apt-get update ```
+``` sudo apt-get install python3-pygame ```
+``` pip install pygame ```
+
+### ffmpeg
+``` sudo apt-get update ```
+``` sudo apt-get install python3-ffmpeg ```
+``` pip install ffmpeg ```
+
+# How to run programs
+``` python3 programName.py```
 
