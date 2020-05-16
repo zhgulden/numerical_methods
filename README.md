@@ -257,6 +257,17 @@ Using the matplotlib library, I was able to visually show the polynomial interpo
 
 ![image34](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange.png)
 
+## <a name="spline"></a> Spline interpolation
+
+Spline interpolation is a form of interpolation where the interpolant is a special type of piecewise polynomial called a spline. Originally, spline was a term for elastic rulers that were bent to pass through a number of predefined points ("knots").
+
+The approach to mathematically model the shape of such elastic rulers fixed by n + 1 knots ![image40](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_1.svg) is to interpolate between all the pairs of knots [!image41](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_2.svg) and ![image42](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_3.svg) with polynomials ![image43](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_4.svg)
+
+Using the matplotlib library, I was able to visually show the spline interpolation
+
+![image44](https://github.com/zhgulden/numerical_methods/blob/master/images/spline.png)
+
+
 # <a name="mathphys"></a> Problems of mathematical physics
 ## <a name="diffusion"></a> Numerical methods for diffusion models
 
