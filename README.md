@@ -17,11 +17,11 @@
   * [Numerical methods for diffusion models](#diffusion)
   * [Numerical methods for wave equations](#wave)
 * [Dependencies](#dependencies)
- * [numpy](#numpy)
- * [scipy](#scipy)
- * [matplotlib](#plt)
- * [pygame](#pygame)
- * [ffmpeg](#ffmpeg)
+  *[numpy](#numpy)
+  * [scipy](#scipy)
+  * [matplotlib](#plt)
+  * [pygame](#pygame)
+  * [ffmpeg](#ffmpeg)
 * [How to run programs](#run)
   
 # <a name="basics"></a> Definitions and Basics
