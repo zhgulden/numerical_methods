@@ -14,7 +14,7 @@
   * [Polynomial interpolation](#lagrange)
   * [Spline interpolation](#spline)
 * [Problems of mathematical physics](#mathphys)
-  * [Numerical methods for diffusion models](#diffusion)
+  * [Heat equation](#heat)
   * [Numerical methods for wave equations](#wave)
 * [Dependencies](#dependencies)
   * [numpy](#numpy)
@@ -268,16 +268,11 @@ Using the matplotlib library, I was able to visually show the spline interpolati
 
 
 # <a name="mathphys"></a> Problems of mathematical physics
-## <a name="diffusion"></a> Numerical methods for diffusion models
+## <a name="heat"></a> Heat equation
 
-The purpose of the program was to create a heat point, then spread it, thereby creating a diffusion effect. 
 The result of the program:
 
-![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/diffusion.png)
-```
-newMatrix[i][j] = matrix[i][j] + C * (matrix[i - 1][j] + matrix[i + 1][j] + matrix[i][j - 1] +
-                          matrix[i][j + 1] - 4 * matrix[i][j])
-```
+![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/heat.gif)
 
 ## <a name="wave"></a> Numerical methods for wave equations
 The result of the program:
