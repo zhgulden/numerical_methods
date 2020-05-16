@@ -118,7 +118,7 @@ But, with the growth of the matrix size, the library function scipy.linalg.solve
 ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep1.png)
 
 ## <a name="cholesky"></a> Cholesky decomposition
-**Asymptotic** ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss_asymptotics.svg)
+**Asymptotic** ![image18.1](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss_asymptotics.svg)
 
 The Cholesky algorithm, used to calculate the decomposition matrix L, is a modified version of Gaussian elimination. 
 
@@ -149,9 +149,8 @@ An iterative method is a mathematical procedure that uses an initial guess to ge
 ## <a name="seidel"></a> Seidel method
 The Seidel method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
 We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
-And let the matrix 
-**B = D + L**, 
-then when substituting ![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.xcf) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcf) we get the Seidel method.
+And let the matrix **B = D + L**, then when substituting 
+![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.xcf) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcf) we get the Seidel method.
 
 ```
 def Seidel(A, f, x, n):
@@ -261,7 +260,8 @@ Using the matplotlib library, I was able to visually show the polynomial interpo
 
 Spline interpolation is a form of interpolation where the interpolant is a special type of piecewise polynomial called a spline. Originally, spline was a term for elastic rulers that were bent to pass through a number of predefined points ("knots").
 
-The approach to mathematically model the shape of such elastic rulers fixed by n + 1 knots ![image40](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_1.svg) is to interpolate between all the pairs of knots [!image41](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_2.svg) and ![image42](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_3.svg) with polynomials ![image43](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_4.svg)
+The approach to mathematically model the shape of such elastic rulers fixed by n + 1 knots ![image40](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_1.svg) is to interpolate between all the pairs of knots 
+[!image41](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_2.svg) and ![image42](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_3.svg) with polynomials ![image43](https://github.com/zhgulden/numerical_methods/blob/master/images/spline_4.svg)
 
 Using the matplotlib library, I was able to visually show the spline interpolation
 
