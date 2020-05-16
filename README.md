@@ -1,25 +1,30 @@
 # Introduction to Numerical methods
 
 ## Content
-* Definitions and Basics
-* Exact Solution of Linear Systems
-  * Gaussian elimination
-  * Tridiagonal matrix algorithm
-  * Cholesky decomposition
-* Iterative methods
-  * Seidel method
-  * Jacobi method
-* Interpolation
-  * Linear interpolation
-  * Polynomial interpolation
-  * Spline interpolation
-* Problems of mathematical physics
-  * Numerical methods for diffusion models
-  * Numerical methods for wave equations
-* Dependencies
-* How to run programs
+* [Definitions and Basics](#basics)
+* [Exact Solution of Linear Systems](#exact_solution)
+  * [Gaussian elimination](#gauss)
+  * [Tridiagonal matrix algorithm](#spline)
+  * [Cholesky decomposition](#cholesky)
+* [Iterative methods](#iterative)
+  * [Seidel method](#seidel)
+  * [Jacobi method](#jacobi)
+* [Interpolation](#interpolation)
+  * [Linear interpolation](#linear)
+  * [Polynomial interpolation](#lagrange)
+  * [Spline interpolation](#spline)
+* [Problems of mathematical physics](#mathphys)
+  * [Numerical methods for diffusion models](#diffusion)
+  * [Numerical methods for wave equations](#wave)
+* [Dependencies](#dependencies)
+ * [numpy](#numpy)
+ * [scipy](#scipy)
+ * [matplotlib](#plt)
+ * [pygame](#pygame)
+ * [ffmpeg](#ffmpeg)
+* [How to run programs](#run)
   
-# Definitions and Basics
+# <a name="basics"></a> Definitions and Basics
 A **linear equation system** is a set of linear equations to be solved simultanously. A linear equation takes the form 
 ![image1](https://github.com/zhgulden/numerical_methods/blob/master/images/definitions_and_basics_1.svg)
 where the n + 1 coefficients ![image2](https://github.com/zhgulden/numerical_methods/blob/master/images/definitions_and_basics_2.svg) and b are constants and ![image3](https://github.com/zhgulden/numerical_methods/blob/master/images/definitions_and_basics_3.svg) are the n unknowns. 
@@ -30,12 +35,12 @@ Following the notation above, a system of linear equations is denoted as
 This system consists of m linear equations, each with n + 1 coefficients, and has n unknowns which have to fulfill the set of equations simultanously. To simplify notation, it is possible to rewrite the above equations in matrix notation: 
 ![image5](https://github.com/zhgulden/numerical_methods/blob/master/images/definitions_and_basics_5.svg)
 
-# Exact Solution of Linear Systems
+# <a name="exact_solution"></a> Exact Solution of Linear Systems
 Solving a system ![image6](https://github.com/zhgulden/numerical_methods/blob/master/images/exact_solution_1.svg) in terms of linear algebra is easy: just multiply the system with ![image7](https://github.com/zhgulden/numerical_methods/blob/master/images/exact_solution_2.svg) from the left, resulting in ![image8](https://github.com/zhgulden/numerical_methods/blob/master/images/exact_solution_3.svg) 
 
 However, finding ![image9](https://github.com/zhgulden/numerical_methods/blob/master/images/exact_solution_4.svg) is (except for trivial cases) very hard. The following sections describe methods to find an exact solution to the problem. 
 
-## Gaussian elimination
+## <a name="gauss"></a> Gaussian elimination
 **Asymptotics**  ![image11](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss_asymptotics.svg)
 
 Gaussian elimination method is a numerical method for solving linear system **Ax = b**, where we assume that **A** is a square **n x n** matrix, **x** and **b** are both **n** dimentional vectors. In the process, the system of equations **Ax = b** is redused by Gaussian elimination to an upper triangular system **Ux = y** (forward function)  to be solved through backward substitution.
@@ -67,7 +72,7 @@ Using the matplotlib library, I was able to visually show the running time of th
 
 ![image11](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss.png)
 
-## Tridiagonal matrix algorithm
+## <a name="spline"></a> Tridiagonal matrix algorithm
 **Asymptotics**  ![image12](https://github.com/zhgulden/numerical_methods/blob/master/images/thomas_algorithm_5.svg)
 
 This algorithm, also known as the Thomas algorithm, is a simplified form of Gaussian elimination that can be used to solve tridiagonal systems of equations. A tridiagonal system for n unknowns may be written as 
@@ -112,7 +117,7 @@ With small matrix sizes (about 1000), the written algorithm works faster than sc
 But, with the growth of the matrix size, the library function scipy.linalg.solve_bounded() is faster.
 ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/sweep1.png)
 
-## Cholesky decomposition
+## <a name="cholesky"></a> Cholesky decomposition
 **Asymptotic** ![image18](https://github.com/zhgulden/numerical_methods/blob/master/images/gauss_asymptotic.svg)
 
 The Cholesky algorithm, used to calculate the decomposition matrix L, is a modified version of Gaussian elimination. 
@@ -138,10 +143,10 @@ def cholesky_decomposition(A, n):
     return L
 ```
 
-# Iterative methods
+# <a name="iterative"></a> Iterative methods
 An iterative method is a mathematical procedure that uses an initial guess to generate a sequence of improving approximate solutions for a class of problems, in which the n-th approximation is derived from the previous ones.
 
-## Seidel method
+## <a name="seidel"></a> Seidel method
 The Seidel method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
 We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
 And let the matrix **B = D + L**, then when substituting ![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.xcv) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcv) we get the Seidel method.
@@ -162,7 +167,7 @@ Using the matplotlib library, I was able to visually show the running time of th
 
 ![image21](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel.png)
 
-## Jacobi method
+## <a name="jacobi"></a> Jacobi method
 The Jacobi method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
 We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
 And let the matrix **B = D** in the expression ![image22](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcv) then we get the Jacobi method.
@@ -182,10 +187,10 @@ Using the matplotlib library, I was able to visually show the running time of th
 
 ![image23](https://github.com/zhgulden/numerical_methods/blob/master/images/jacobi.png)
 
-# Interpolation
+# <a name="interpolation"></a> Interpolation
 Interpolation is a type of estimation, a method of constructing new data points within the range of a discrete set of known data points.
 
-## Linear interpolation
+## <a name="linear"></a> Linear interpolation
 One of the simplest methods is linear interpolation (sometimes known as lerp). Consider the above example of estimating f(2.5). Since 2.5 is midway between 2 and 3, it is reasonable to take f(2.5) midway between f(2) = 0.9093 and f(3) = 0.1411, which yields 0.5252. Linear interpolation is quick and easy, but it is not very precise. 
 
 Generally, linear interpolation takes two data points and the interpolant is given by: 
@@ -225,14 +230,16 @@ Using the matplotlib library, I was able to visually show the linear interpolati
 
 ![image27](https://github.com/zhgulden/numerical_methods/blob/master/images/Linear.png)
 
-## Polynomial interpolation
+## <a name="lagrange"></a> Polynomial interpolation
 Polynomial interpolation is the interpolation of a given data set by the polynomial of lowest possible degree that passes through the points of the dataset.
 
-**The Lagrange interpolating polynomial** is the polynomial **P(x)** of degree ![image28](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_1.gif) that passes through the **n** points ![image29](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_2.gif),
+**The Lagrange interpolating polynomial** is the polynomial **P(x)** of degree ![image28](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_1.gif) that passes through the **n** points !
+
+[image29](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_2.gif),
 
 ![image30](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_3.gif), 
 
-...,
+... ,
 
 ![image31](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange_4.gif).
  
@@ -248,8 +255,8 @@ Using the matplotlib library, I was able to visually show the polynomial interpo
 
 ![image34](https://github.com/zhgulden/numerical_methods/blob/master/images/lagrange.png)
 
-# Problems of mathematical physics
-## Numerical methods for diffusion models
+# <a name="mathphys"></a> Problems of mathematical physics
+## <a name="diffusion"></a> Numerical methods for diffusion models
 
 The purpose of the program was to create a heat point, then spread it, thereby creating a diffusion effect. 
 The result of the program:
@@ -260,7 +267,7 @@ newMatrix[i][j] = matrix[i][j] + C * (matrix[i - 1][j] + matrix[i + 1][j] + matr
                           matrix[i][j + 1] - 4 * matrix[i][j])
 ```
 
-## Numerical methods for wave equations
+## <a name="wave"></a> Numerical methods for wave equations
 The result of the program:
 
 ![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/wave.png)
@@ -268,8 +275,8 @@ The result of the program:
 matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1][j] + matrixOld[i-1][j] +
                 matrixOld[i][j-1] + matrixOld[i][j+1] - 4.0 * matrixOld[i][j])
 ```
-# Dependencies
-### numpy
+# <a name="dependencies"></a> Dependencies
+### <a name="numpy"></a> numpy
 
 ``` sudo apt-get update ```
 
@@ -277,7 +284,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install numpy ```
 
-### scipy
+### <a name="scipy"></a> scipy
 
 ``` sudo apt-get update ```
 
@@ -285,7 +292,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install scipy ```
 
-### matplotlib
+### <a name="plt"></a> matplotlib
 
 ``` sudo apt-get update ```
 
@@ -293,7 +300,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install matplotlib ```
 
-### pygame
+### <a name="pygame"></a> pygame
 
 ``` sudo apt-get update ```
 
@@ -301,7 +308,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install pygame ```
 
-### ffmpeg
+### <a name="ffmpeg"></a> ffmpeg
 
 ``` sudo apt-get update ```
 
@@ -309,7 +316,7 @@ matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1
 
 ``` pip install ffmpeg ```
 
-# How to run programs
+# <a name="run"></a> How to run programs
 
 ``` python3 programName.py```
 
