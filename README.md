@@ -14,7 +14,7 @@
   * [Polynomial interpolation](#lagrange)
   * [Spline interpolation](#spline)
 * [Problems of mathematical physics](#mathphys)
-  * [Numerical methods for heat equations](#heat)
+  * [Numerical methods for diffusion equations](#heat)
   * [Numerical methods for transfer equations](#transfer)
 * [Dependencies](#dependencies)
   * [numpy](#numpy)
@@ -268,13 +268,18 @@ Using the matplotlib library, I was able to visually show the spline interpolati
 
 
 # <a name="mathphys"></a> Problems of mathematical physics
-## <a name="heat"></a> Heat equation
+## <a name="heat"></a> Numerical methods for diffusion equation
 
 The result of the program:
 
 ![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/heat.gif)
 
-## <a name="equation"></a> Transfer equation
+The heat equation is a partial differential equation that describes how the distribution of some quantity (such as heat) evolves over time in a solid medium, as it spontaneously flows from places where it is higher towards places where it is lower. It is a special case of the diffusion equation.
+
+## <a name="equation"></a> Numerical methods for transfer equation
+
+Instead of the diffusion equation, the process of the propagation of particles is also described by more accurate equations, the so-called **transfer equations**.
+
 The result of the program:
 
 ![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/transfer.gif)
