@@ -150,7 +150,7 @@ An iterative method is a mathematical procedure that uses an initial guess to ge
 The Seidel method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
 We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
 And let the matrix **B = D + L**, then when substituting 
-![image19](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_2.svg) in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.svg) we get the Seidel method.
+**T = 1** in the expression ![image20](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.jpg) we get the Seidel method.
 
 ```
 def Seidel(A, f, x, n):
@@ -171,7 +171,7 @@ Using the matplotlib library, I was able to visually show the running time of th
 ## <a name="jacobi"></a> Jacobi method
 The Jacobi method is an iterative technique for solving a square system of n linear equations with unknown x: **Ax = b**
 We represent matrix A as the sum of a lower triangular, diagonal, and upper triangular matrix **A = L + D + U**.
-And let the matrix **B = D** in the expression ![image22](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.xcf) then we get the Jacobi method.
+And let the matrix **B = D** in the expression ![image22](https://github.com/zhgulden/numerical_methods/blob/master/images/seidel_1.jpg) then we get the Jacobi method.
 ```
 def Jacobi(A, f, x, n):
     newx = [0] * n
