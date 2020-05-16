@@ -15,7 +15,7 @@
   * [Spline interpolation](#spline)
 * [Problems of mathematical physics](#mathphys)
   * [Heat equation](#heat)
-  * [Numerical methods for wave equations](#wave)
+  * [Transfer equation](#transfer)
 * [Dependencies](#dependencies)
   * [numpy](#numpy)
   * [scipy](#scipy)
@@ -274,10 +274,10 @@ The result of the program:
 
 ![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/heat.gif)
 
-## <a name="wave"></a> Numerical methods for wave equations
+## <a name="equation"></a> Transfer equation
 The result of the program:
 
-![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/wave.png)
+![image35](https://github.com/zhgulden/numerical_methods/blob/master/images/transfer.gif)
 ```
 matrix[i][j] = 2.0 * matrixOld[i][j] - matrixSuperOld[i][j] + C * (matrixOld[i+1][j] + matrixOld[i-1][j] +
                 matrixOld[i][j-1] + matrixOld[i][j+1] - 4.0 * matrixOld[i][j])
